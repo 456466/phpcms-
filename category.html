@@ -13,7 +13,7 @@
         	<div class="menu">
             	<ul>
                 	<li>网站首页</li>
-                    <!-- <li><a href="#">学校概况</a></li>
+                    <li><a href="#">学校概况</a></li>
                     <li><a href="#">规章制度</a></li>
                     <li><a href="#">德育网</a></li>
                     <li><a href="#">教研网</a></li>
@@ -23,16 +23,7 @@
                     <li><a href="#">校友会</a></li>
                     <li><a href="#">河中论坛</a></li>
                     <li><a href="#">查询系统</a></li>
-                    <li><a href="#" class="specil">东校区</a></li>  --> 
-                    {pc:content 
-                    action="category" 
-                    catid="0" num="11" 
-                    siteid="$siteid"
-                    order="listorder ASC"}  
-                    {loop $data $v}
-                    <li><a href="{$v['url']}">{$v['catname']}</a></li>
-                    {/loop}
-                    {/pc}                   
+                    <li><a href="#" class="specil">东校区</a></li>                    
                 </ul>
             </div>           
         </div>
@@ -46,28 +37,15 @@
         	<div id="leftmenu">
             	<h1>{$catname}</h1>
                 <ul>
-                	<!-- <a href="#">领导简介</a>
+                	{pc:content action="category" catid="$catid" order="listorder ASC"}
+                	{loop $data $v}<a href="{$v['url']}">{$v['catname']}</a>
+                	{/loop}
+                	
+                	<!--<a href="#">领导简介</a>
                     <a href="#">学校简介</a>
                     <a href="#">光荣历史</a>
                     <a href="#" class="dq">所获荣誉</a>
-                    <a href="#">图说河中</a> -->
-                    <?php
-                        $firstcatid = explode(',',$arrchildid);
-                        $firstcatid = $firstcatid[0];
-                    ?>
-                    {pc:content
-                    action="category"
-                    catid="$catid"
-                    order="listorder ASC"}
-                        {loop $data $v}
-                            {if $v['catid'==$firstcatid]}
-                                <a href="{$v['url']}"class="dq" >{$v['catname']}</a>
-                                <?php $curname=$v['catname']?>
-                            {else}
-                                <a href="{$v['url']}" >{$v['catname']}</a>
-                            {/if}
-                        {/loop}
-                    {/pc}
+                    <a href="#">图说河中</a>-->
               </ul>
             </div>
           <div id="pic">
@@ -89,7 +67,7 @@
         </div>
         
         <div id="right">
-        	<h1>{$curname}</h1>
+        	<h1>所获荣誉</h1>
             <ul>
             	<li><a href="#">[组图]我校被授予2010-2011年度省级文明单位</a>	<span class="newsdate">2013-05-10</span></li>
 	<li><a href="#">[组图]我校被评为“石家庄市2010-2011年度文明单位”</a>	<span class="newsdate">2013-05-10</span></li>	
@@ -123,5 +101,5 @@
  		Copyright © 2008－2013 http://www.***.com All Rights Reserved   网站备案：冀ICP备00000000号
 	</div>
 </body>
-<script type="text/javascript" src="{JS_PATH}/hbschool/pic.js"></script>
+<script type="text/javascript" src="js/pic.js"></script>
 </html>

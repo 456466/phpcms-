@@ -16,8 +16,10 @@
     	<div id="top">
         	<div class="menu">
             	<ul>
-                	<li>网站首页</li>
-                    <!-- <li><a href="list.html">学校概况</a></li>
+            		{pc:content action="category" catid="0" order="listorder ASC" num="11" siteid="$siteid"}
+            		{loop $data $v}<li><a href="{$v['url']}">{$v['catname']}</a></li>{/loop}
+                	<!--<li>网站首页</li>
+                    <li><a href="list.html">学校概况</a></li>
                     <li><a href="#">规章制度</a></li>
                     <li><a href="#">德育网</a></li>
                     <li><a href="#">教研网</a></li>
@@ -27,20 +29,7 @@
                     <li><a href="#">校友会</a></li>
                     <li><a href="#">河中论坛</a></li>
                     <li><a href="#">查询系统</a></li>
-                    <li><a href="#" class="specil">东校区</a></li>   -->  
-                    {pc:content 
-                    action="category" 
-                    catid="0" num="11" 
-                    siteid="$siteid"
-                    order="listorder ASC"}  
-                    {loop $data $v}
-                    {if $v['catid'==21]}
-                    <li><a href="{$v['url']}" class="specil">{$v['catname']}</a></li>
-                    {else}
-                    <li><a href="{$v['url']}">{$v['catname']}</a></li>
-                    {/if}
-                    {/loop}
-                    {/pc}              
+                    <li><a href="#" class="specil">东校区</a></li>          -->          
                 </ul>
             </div>
             <div id="search">
@@ -72,28 +61,22 @@
            	  <div id="news">
                    <h1><img src="{IMG_PATH}/hbschool/news_pic_title.gif" width="430" height="50" usemap="#Map2" border="0" />
                      <map name="Map2" id="Map2">
-                       <area shape="rect" coords="386,21,430,44" href="{APP_PATH}index.php?m=content&c=index&a=lists&catid=44"/>
+                       <area shape="rect" coords="386,21,430,44" href="{APP_PATH}index.php?m=content&c=index&a=lists&catid=21" />
                      </map>
                    </h1>
                    <ul >
-                   {pc:content 
-                   action="lists"
-                   catid="44" order="inputtime DESC"
-                   num="8"}
-                   	{loop $data $v}
-                   		<li><a href="{$v['url']}">{$v['title']}</a><span class="newsdate">{date('Y-m-d',$v['inputtime'])}</span></li>
-                   	{/loop}
-                   {/pc}
-
-
-                    <!-- <li><a href="content.html" class="hot">【家长学校1306期】大学主要的专业介绍</a><span class="newsdate">2013-05-10</span></li>
+                   	{pc:content action="lists" catid="30" order="inputtime DESC" num="8"}
+                   	{loop $data $v}<li><a href="{$v['url']}" >{$v['title']}</a><span class="newsdate">{date('Y-m-d',$v['inputtime'])}</span></li>{/loop}
+                   	{/pc}
+                   	
+                    <!--<li><a href="content.html" class="hot">【家长学校1306期】大学主要的专业介绍</a><span class="newsdate">2013-05-10</span></li>
                    	<li><a href="#" >[图文]化学老师于文英举办观摩课活动 </a><span class="newsdate">2013-05-10</span></li>
                     <li><a href="#">[图文]本部数学组组织公开课教学</a><span class="newsdate">2013-05-10</span></li>
                     <li><a href="#">[图文]生物老师开展观摩课活动</a><span class="newsdate">2013-05-10</span></li>
                     <li><a href="#">[图文]首届“五四杯”青年篮球对抗赛成功举办</a><span class="newsdate">2013-05-10</span></li>
                     <li><a href="#">[组图]校工会组织教职工广场舞展示、交流活动</a><span class="newsdate">2013-05-10</span></li>
                     <li><a href="#">[组图]高二理科部召开第二次月考表彰大会</a><span class="newsdate">2013-05-10</span></li>
-                    <li><a href="#">[组图]加强消防培训，确保学生安全</a><span class="newsdate">2013-05-10</span></li> -->
+                    <li><a href="#">[组图]高二理科部召开第二次月考表彰大会</a><span class="newsdate">2013-05-10</span></li>-->
                    </ul>
                   
                  </div>
